@@ -138,6 +138,7 @@ class HTML_Common {
         if (is_array($attributes)) {
             foreach ($attributes as $key => $value) {
                 $strAttr .= ' ' . $key . '="' . htmlspecialchars($value) . '"';
+            }
         }
         return $strAttr;
     } // end func _getAttrString
