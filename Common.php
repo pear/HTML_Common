@@ -20,6 +20,16 @@
 
 /**
  * Base class for all HTML classes
+ * 
+ * @author    Adam Daniel <adaniel1@eesus.jnj.com>
+ * @category  HTML
+ * @package   HTML_Common
+ * @version   1.2.2
+ * @abstract
+ */
+
+/**
+ * Base class for all HTML classes
  *
  * @author      Adam Daniel <adaniel1@eesus.jnj.com>
  * @version     1.7
@@ -226,7 +236,7 @@ class HTML_Common {
      * @param     string    $attr           Attribute name
      * @param     array     $attributes     Attribute array
      * @since     1.4
-     * @access    public
+     * @access    private
      * @return    void
      * @throws
      */
