@@ -7,7 +7,7 @@
 The PEAR::HTML_Common package provides methods for html code display and attributes handling.
 * Methods to set, remove, update html attributes.
 * Handles comments in HTML code.
-* Handles layout and tabs for nicer HTML code.
+* Handles layout, tabs, line endings for nicer HTML code.
   </description>
   <license>PHP License</license>
   <maintainers>
@@ -25,6 +25,23 @@ The PEAR::HTML_Common package provides methods for html code display and attribu
     </maintainer>
   </maintainers>
   <release>
+    <version>1.2</version>
+    <date>2003-05-20</date>
+    <state>stable</state>
+    <notes>
+Applied patch by Klaus Guenther:
+* setTab(): Allows the indent string (default: \t) to be set
+* setLineEnd(): Allows the line end string (default: \n) to be set
+* Allows the indent and line ending settings to be propagated to content objects
+    </notes>
+    <filelist>
+      <dir name="/" baseinstalldir="HTML">
+        <file role="php">Common.php</file>
+      </dir>
+    </filelist>
+  </release>
+ <changelog>
+  <release>
     <version>1.1</version>
     <date>2003-04-15</date>
     <state>stable</state>
@@ -34,13 +51,7 @@ This new release optimizes HTML_Common's way to deal with attributes.
 * Only key-value associative arrays are now used, XHTML compliant (Alexey Borzov)
 * Fix a bug related to getAttribute case sensitivity detected by Ian Harder #22628 (Alexey Borzov)
     </notes>
-    <filelist>
-      <dir name="/" baseinstalldir="HTML">
-        <file role="php">Common.php</file>
-      </dir>
-    </filelist>
   </release>
- <changelog>
   <release>
     <version>1.0</version>
     <date>2002-05-28</date>
