@@ -21,7 +21,7 @@ The PEAR::HTML_Common package provides methods for html code display and attribu
       <user>mansion</user>
       <name>Bertrand Mansion</name>
       <email>bmansion@mamasam.com</email>
-      <role>developer</role>
+      <role>lead</role>
     </maintainer>
   </maintainers>
   <release>
