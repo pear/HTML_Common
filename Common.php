@@ -95,7 +95,7 @@ class HTML_Common {
                 if (is_int($key)) {
                     $strAttr .= ' ' . strtolower($value) . '="' . strtolower($value) . '"';
                 } else {
-                    $strAttr .= ' ' . strtolower($key) . '="' . htmlspecialchars($value) . '"';
+                    $strAttr .= ' ' . strtolower($key) . '="' . htmlentities($value) . '"';
                 }
             }
         }
@@ -143,7 +143,7 @@ class HTML_Common {
      * @since     1.0
      * @access    private
      * @return    array key
-     * @throws    
+     * @throws
      */
     function _getAttrKey($attr, $attributes)
     {
@@ -189,7 +189,7 @@ class HTML_Common {
             }
         }
     } // end func _updateAtrrArray
-    
+
     /**
      * Removes the given attribute from the given array
      * 
@@ -198,7 +198,7 @@ class HTML_Common {
      * @since     1.4
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function _removeAttr($attr, &$attributes)
     {
@@ -216,7 +216,7 @@ class HTML_Common {
      * @since     1.5
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function getAttribute($attr)
     {
@@ -232,7 +232,7 @@ class HTML_Common {
      * @param    mixed   $attributes     Either a typical HTML attribute string or an associative array
      * @access   public
      */
-    function setAttributes($attributes) 
+    function setAttributes($attributes)
     {
         $this->_attributes = $this->_parseAttributes($attributes);
     } // end func _setAttributes
@@ -243,7 +243,7 @@ class HTML_Common {
      * @since     1.6
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function getAttributes()
     {
@@ -262,13 +262,13 @@ class HTML_Common {
     } // end func updateAttributes
 
     /**
-     * Removes an attribute from 
+     * Removes an attribute
      * 
      * @param     string    $attr   Attribute name
      * @since     1.4
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function removeAttribute($attr)
     {
@@ -284,14 +284,14 @@ class HTML_Common {
     {
         $this->_tabOffset = $offset;
     } // end func setTabOffset
-    
+
     /**
      * Returns the tabOffset
      * 
      * @since     1.5
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function getTabOffset()
     {
@@ -305,20 +305,20 @@ class HTML_Common {
      * @since     1.4
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function setComment($comment)
     {
         $this->_comment = $comment;
     } // end func setHtmlComment
-    
+
     /**
      * Returns the HTML comment
      * 
      * @since     1.5
      * @access    public
      * @return    void
-     * @throws    
+     * @throws
      */
     function getComment()
     {
@@ -330,11 +330,11 @@ class HTML_Common {
      *
      * @access    public
      * @return    string
-     * @abstract    
+     * @abstract
      */
     function toHtml()
     {
-        return "";
+        return '';
     } // end func toHtml
 
     /**
