@@ -141,8 +141,8 @@ class HTML_Common {
      * @param     string    $attr         Attribute
      * @param     array     $attributes   Array of attribute
      * @since     1.0
-     * @access    public
-     * @return    void
+     * @access    private
+     * @return    array key
      * @throws    
      */
     function _getAttrKey($attr, $attributes)
