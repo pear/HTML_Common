@@ -264,19 +264,23 @@ class HTML_Common {
     function setAttributes($attributes)
     {
         $this->_attributes = $this->_parseAttributes($attributes);
-    } // end func _setAttributes
+    } // end func setAttributes
 
     /**
-     * Returns an assoc array of attributes
-     * 
+     * Returns the assoc array (default) or string of attributes
+     *
+     * @param     bool    Whether to return the attributes as string 
      * @since     1.6
      * @access    public
-     * @return    void
-     * @throws
+     * @return    mixed   attributes
      */
-    function getAttributes()
+    function getAttributes($asString = false)
     {
-        return $this->_attributes;
+        if ($asString) {
+            return $this->_getAttrString($this->_attributes);
+        } else {
+            return $this->_attributes;
+        }
     } //end func getAttributes
 
     /**
