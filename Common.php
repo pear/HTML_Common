@@ -136,13 +136,8 @@ class HTML_Common {
         $strAttr = '';
 
         if (is_array($attributes)) {
-            while (list($key, $value) = each($attributes)) {
-                if (is_int($key)) {
-                    $strAttr .= ' ' . strtolower($value) . '="' . strtolower($value) . '"';
-                } else {
-                    $strAttr .= ' ' . strtolower($key) . '="' . htmlentities($value) . '"';
-                }
-            }
+            foreach ($attributes as $key => $value) {
+                $strAttr .= ' ' . $key . '="' . htmlspecialchars($value) . '"';
         }
         return $strAttr;
     } // end func _getAttrString
@@ -155,24 +150,32 @@ class HTML_Common {
     function _parseAttributes($attributes)
     {
         if (is_array($attributes)) {
-            return $attributes;
+            $ret = array();
+            foreach ($attributes as $key => $value) {
+                if (is_int($key)) {
+                    $key = $value = strtolower($value);
+                } else {
+                    $key = strtolower($key);
+                }
+                $ret[$key] = $value;
+            }
+            return $ret;
+
         } elseif (is_string($attributes)) {
             $preg = "/(([A-Za-z_:]|[^\\x00-\\x7F])([A-Za-z0-9_:.-]|[^\\x00-\\x7F])*)" .
                 "([ \\n\\t\\r]+)?(=([ \\n\\t\\r]+)?(\"[^\"]*\"|'[^']*'|[^ \\n\\t\\r]*))?/";
             if (preg_match_all($preg, $attributes, $regs)) {
-                $valCounter = 0;
                 for ($counter=0; $counter<count($regs[1]); $counter++) {
-                    $name = $regs[1][$counter];
+                    $name  = $regs[1][$counter];
                     $check = $regs[0][$counter];
-                    $value = $regs[7][$valCounter];
+                    $value = $regs[7][$counter];
                     if (trim($name) == trim($check)) {
-                        $arrAttr[] = strtoupper(trim($name));
+                        $arrAttr[strtolower(trim($name))] = strtolower(trim($name));
                     } else {
                         if (substr($value, 0, 1) == "\"" || substr($value, 0, 1) == "'") {
                             $value = substr($value, 1, -1);
                         }
                         $arrAttr[strtolower(trim($name))] = trim($value);
-                        $valCounter++;
                     }
                 }
                 return $arrAttr;
@@ -192,16 +195,10 @@ class HTML_Common {
      */
     function _getAttrKey($attr, $attributes)
     {
-        if (is_array($attributes)) {
-            $keys = array_keys($attributes);
-            for ($counter=0; $counter < count($keys); $counter++) {
-                $key = $keys[$counter];
-                $value = $attributes[$key];
-                if (strtoupper($value) == strtoupper($attr) && is_int($key)) {
-                    return $key;
-                    break;
-                }
-            }
+        if (isset($attributes[strtolower($attr)])) {
+            return true;
+        } else {
+            return null;
         }
     } //end func _getAttrKey
 
@@ -217,21 +214,8 @@ class HTML_Common {
         if (!is_array($attr2)) {
             return false;
         }
-        while (list($key, $value) = each($attr2)) {
-            if (!is_int($key)) {
-                $attr1[$key] = $value;
-            } else {
-                $key = $this->_getAttrKey($value, $attr1);
-                if (isset($key)) {
-                    $attr1[$key] = $value;
-                } else {
-                    if (is_array($attr1)) {
-                        array_unshift($attr1, $value);
-                    } else {
-                        $attr1[] = $value;
-                    }
-                }
-            }
+        foreach ($attr2 as $key => $value) {
+            $attr1[$key] = $value;
         }
     } // end func _updateAtrrArray
 
@@ -247,10 +231,9 @@ class HTML_Common {
      */
     function _removeAttr($attr, &$attributes)
     {
-        if (in_array(strtolower($attr), array_keys($attributes))) {
+        $attr = strtolower($attr);
+        if (isset($attributes[$attr])) {
             unset($attributes[$attr]);
-        } else {
-            unset($attributes[$this->_getAttrKey($attr, $attributes)]);
         }
     } //end func _removeAttr
 
@@ -266,10 +249,10 @@ class HTML_Common {
     function getAttribute($attr)
     {
         $attr = strtolower($attr);
-        if (is_array($this->_attributes) && isset($this->_attributes[$attr])) {
+        if (isset($this->_attributes[$attr])) {
             return $this->_attributes[$attr];
         }
-        return;
+        return null;
     } //end func getAttribute
 
     /**
@@ -302,8 +285,7 @@ class HTML_Common {
      */
     function updateAttributes($attributes)
     {
-        $attributes = $this->_parseAttributes($attributes);
-        $this->_updateAttrArray($this->_attributes, $attributes);
+        $this->_updateAttrArray($this->_attributes, $this->_parseAttributes($attributes));
     } // end func updateAttributes
 
     /**
