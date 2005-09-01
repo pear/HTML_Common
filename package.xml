@@ -12,9 +12,15 @@ The PEAR::HTML_Common package provides methods for html code display and attribu
   <license>PHP License</license>
   <maintainers>
     <maintainer>
-      <user>adaniel</user>
-      <name>Adam Daniel</name>
-      <email>adaniel1@eesus.jnj.com</email>
+      <user>thesaur</user>
+      <name>Klaus Guenther</name>
+      <email>thesaur@php.net</email>
+      <role>lead</role>
+    </maintainer>
+    <maintainer>
+      <user>avb</user>
+      <name>Alexey Borzov</name>
+      <email>avb@php.net</email>
       <role>lead</role>
     </maintainer>
     <maintainer>
