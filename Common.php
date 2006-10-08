@@ -24,7 +24,7 @@
  * @author    Adam Daniel <adaniel1@eesus.jnj.com>
  * @category  HTML
  * @package   HTML_Common
- * @version   1.2.2
+ * @version   1.2.3
  * @abstract
  */
 
@@ -145,8 +145,9 @@ class HTML_Common {
         $strAttr = '';
 
         if (is_array($attributes)) {
+            $charset = HTML_Common::charset();
             foreach ($attributes as $key => $value) {
-                $strAttr .= ' ' . $key . '="' . htmlspecialchars($value) . '"';
+                $strAttr .= ' ' . $key . '="' . htmlspecialchars($value, ENT_COMPAT, $charset) . '"';
             }
         }
         return $strAttr;
@@ -261,6 +262,22 @@ class HTML_Common {
         }
         return null;
     } //end func getAttribute
+
+    /**
+     * Sets the value of the attribute
+     *
+     * @param   string  Attribute name
+     * @param   string  Attribute value (will be set to $name if omitted)
+     * @access  public
+     */
+    function setAttribute($name, $value = null)
+    {
+        $name = strtolower($name);
+        if (is_null($value)) {
+            $value = $name;
+        }
+        $this->_attributes[$name] = $value;
+    } // end func setAttribute
 
     /**
      * Sets the HTML attributes
@@ -420,5 +437,34 @@ class HTML_Common {
         print $this->toHtml();
     } // end func display
 
+    /**
+     * Sets the charset to use by htmlspecialchars() function
+     *
+     * Since this parameter is expected to be global, the function should be
+     * calles statically:
+     * <code>
+     * HTML_Common::charset('utf-8');
+     * </code>
+     * or
+     * <code>
+     * $charset = HTML_Common::charset();
+     * </code>
+     *
+     * @param   string  New charset to use. Omit if just getting the 
+     *                  current value. Consult the htmlspecialchars() docs 
+     *                  for a list of supported character sets.
+     * @return  string  Current charset
+     * @access  public
+     * @static
+     */
+    function charset($newCharset = null)
+    {
+        static $charset = 'ISO-8859-1';
+
+        if (!is_null($newCharset)) {
+            $charset = $newCharset;
+        }
+        return $charset;
+    } // end func charset
 } // end class HTML_Common
 ?>

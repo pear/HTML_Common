@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<package packagerversion="1.4.0b1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
+<package version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" 
+		 xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:schemaLocation="http://pear.php.net/dtd/package-2.0
 http://pear.php.net/dtd/package-2.0.xsd">
  <name>HTML_Common</name>
  <channel>pear.php.net</channel>
@@ -33,25 +34,25 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <lead>
   <name>Adam Daniel</name>
   <user>adaniel</user>
-  <email>adaniel1@eesus.jnj.com</email>  <email></email>
+  <email>adaniel1@eesus.jnj.com</email>
   <active>no</active>
  </lead>
- <date>2005-09-01</date>
- <time>13:00:00</time>
+ <date>2006-10-08</date>
  <version>
-  <release>1.2.2</release>
-  <api>1.7.0</api>
+  <release>1.2.3</release>
+  <api>1.2.3</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>Bugfix release
-- fixed bug #3948 (semicolon after case in switch)
-- fixed bug #3953 (outdated inline docs for a private function)
-- updated some other inline docs for private functions
-    
+ <notes>
+* Added setAttribute() method (backport from HTML_Common2)
+* Added possibility to set the charset parameter for htmlspecialchars()
+  via static HTML_Common::charset() method (see bug #2410)
+* Properly document getAttribute() method (bug #5704), fix PHPDoc comments
+  for several other methods
  </notes>
  <contents>
   <dir name="/">
@@ -70,6 +71,24 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.2.2</release>
+    <api>1.2.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2005-09-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Bugfix release
+- fixed bug #3948 (semicolon after case in switch)
+- fixed bug #3953 (outdated inline docs for a private function)
+- updated some other inline docs for private functions
+    
+   </notes>
+  </release>
   <release>
    <version>
     <release>1.2.1</release>

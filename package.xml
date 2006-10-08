@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0">
+<package xmlns="http://pear.php.net/dtd/package-1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://pear.php.net/dtd/package-1.0 http://pear.php.net/dtd/package-1.0.xsd"
+		 version="1.0">
   <name>HTML_Common</name>
   <summary>PEAR::HTML_Common is a base class for other HTML classes.</summary>
   <description>
@@ -31,8 +33,28 @@ The PEAR::HTML_Common package provides methods for html code display and attribu
     </maintainer>
   </maintainers>
   <release>
+    <version>1.2.3</version>
+    <date>2006-10-08</date>
+    <license>PHP License</license>
+    <state>stable</state>
+    <notes>
+* Added setAttribute() method (backport from HTML_Common2)
+* Added possibility to set the charset parameter for htmlspecialchars()
+  via static HTML_Common::charset() method (see bug #2410)
+* Properly document getAttribute() method (bug #5704), fix PHPDoc comments
+  for several other methods
+    </notes>
+    <filelist>
+      <dir name="/" baseinstalldir="HTML">
+        <file role="php" name="Common.php" />
+      </dir>
+    </filelist>
+  </release>
+ <changelog>
+  <release>
     <version>1.2.2</version>
     <date>2005-09-01</date>
+    <license>PHP License</license>
     <state>stable</state>
     <notes>
 Bugfix release
@@ -40,16 +62,11 @@ Bugfix release
 - fixed bug #3953 (outdated inline docs for a private function)
 - updated some other inline docs for private functions
     </notes>
-    <filelist>
-      <dir name="/" baseinstalldir="HTML">
-        <file role="php">Common.php</file>
-      </dir>
-    </filelist>
   </release>
- <changelog>
   <release>
     <version>1.2.1</version>
     <date>2003-06-19</date>
+    <license>PHP License</license>
     <state>stable</state>
     <notes>
 * Method getAttributes() can now return the attributes in a string (Alexey Borzov)
@@ -58,6 +75,7 @@ Bugfix release
   <release>
     <version>1.2</version>
     <date>2003-05-20</date>
+    <license>PHP License</license>
     <state>stable</state>
     <notes>
 Applied patch by Klaus Guenther:
@@ -69,6 +87,7 @@ Applied patch by Klaus Guenther:
   <release>
     <version>1.1</version>
     <date>2003-04-15</date>
+    <license>PHP License</license>
     <state>stable</state>
     <notes>
 This new release optimizes HTML_Common's way to deal with attributes.
@@ -80,6 +99,7 @@ This new release optimizes HTML_Common's way to deal with attributes.
   <release>
     <version>1.0</version>
     <date>2002-05-28</date>
+    <license>PHP License</license>
     <state>stable</state>
     <notes>
 First release.
