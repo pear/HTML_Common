@@ -440,8 +440,8 @@ class HTML_Common {
     /**
      * Sets the charset to use by htmlspecialchars() function
      *
-     * Since this parameter is expected to be global, the function should be
-     * calles statically:
+     * Since this parameter is expected to be global, the function is designed
+     * to be called statically:
      * <code>
      * HTML_Common::charset('utf-8');
      * </code>
