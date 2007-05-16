@@ -1,9 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <package version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" 
 		 xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" 
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		 xsi:schemaLocation="http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+		 xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>HTML_Common</name>
  <channel>pear.php.net</channel>
  <summary>PEAR::HTML_Common is a base class for other HTML classes.</summary>
@@ -17,7 +16,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <name>Klaus Guenther</name>
   <user>thesaur</user>
   <email>thesaur@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <lead>
   <name>Alexey Borzov</name>
@@ -37,10 +36,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>adaniel1@eesus.jnj.com</email>
   <active>no</active>
  </lead>
- <date>2006-10-08</date>
+ <date>2007-05-16</date>
  <version>
-  <release>1.2.3</release>
-  <api>1.2.3</api>
+  <release>1.2.4</release>
+  <api>1.2.4</api>
  </version>
  <stability>
   <release>stable</release>
@@ -48,15 +47,14 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* Added setAttribute() method (backport from HTML_Common2)
-* Added possibility to set the charset parameter for htmlspecialchars()
-  via static HTML_Common::charset() method (see bug #2410)
-* Properly document getAttribute() method (bug #5704), fix PHPDoc comments
-  for several other methods
+Migrate to package.xml version 2.0, use proper header comment block.
+No code changes since previous release.
  </notes>
  <contents>
   <dir name="/">
-   <file baseinstalldir="HTML" name="Common.php" role="php" />
+   <file baseinstalldir="HTML" name="Common.php" role="php">
+    <tasks:replace from="@package_version@" to="version" type="package-info" />
+   </file>
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -71,6 +69,25 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.2.3</release>
+    <api>1.2.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-10-08</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+* Added setAttribute() method (backport from HTML_Common2)
+* Added possibility to set the charset parameter for htmlspecialchars()
+  via static HTML_Common::charset() method (see bug #2410)
+* Properly document getAttribute() method (bug #5704), fix PHPDoc comments
+  for several other methods
+   </notes>
+  </release>
   <release>
    <version>
     <release>1.2.2</release>
