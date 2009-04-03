@@ -36,10 +36,10 @@
   <email>adaniel1@eesus.jnj.com</email>
   <active>no</active>
  </lead>
- <date>2007-05-16</date>
+ <date>2009-04-03</date>
  <version>
-  <release>1.2.4</release>
-  <api>1.2.4</api>
+  <release>1.2.5</release>
+  <api>1.2.3</api>
  </version>
  <stability>
   <release>stable</release>
@@ -47,8 +47,8 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-Migrate to package.xml version 2.0, use proper header comment block.
-No code changes since previous release.
+Whitespace is no longer trimmed from quoted attribute values in 
+_parseAttribute() method (bug #15787)
  </notes>
  <contents>
   <dir name="/">
@@ -60,15 +60,31 @@ No code changes since previous release.
  <dependencies>
   <required>
    <php>
-    <min>4.0.0</min>
+    <min>4.0.4</min>
    </php>
    <pearinstaller>
-    <min>1.4.0b1</min>
+    <min>1.4.3</min>
    </pearinstaller>
   </required>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.2.4</release>
+    <api>1.2.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-05-16</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Migrate to package.xml version 2.0, use proper header comment block.
+No code changes since previous release.
+   </notes>
+  </release>
   <release>
    <version>
     <release>1.2.3</release>
