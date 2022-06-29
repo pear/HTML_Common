@@ -1,0 +1,47 @@
+name: PHP Code Quality
+on:
+  pull_request:
+    branches:
+      - trunk
+  push:
+    branches:
+      - trunk
+
+jobs:
+  quality:
+    name: Code Quality PHP (${{matrix.php_versions}})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php_versions: ['7.4', '8.0', '8.1', '8.2']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP ${{ matrix.php_versions}}
+        uses: shivammathur/setup-php@v2
+        with:
+          coverage: none
+          php-version: ${{matrix.php_versions}}
+          tools: composer, cs2pr, parallel-lint, phpcs, phpstan, psalm
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v3
+        name: Cache Composer Dependencies
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
+
+      - name: Linting
+        run: |
+          parallel-lint --no-colors --no-progress --checkstyle ./Common.php | cs2pr
+      - name: Run Static Analysis (PHPStan)
+        run: phpstan analyse

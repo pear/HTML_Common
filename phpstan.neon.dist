@@ -1,0 +1,14 @@
+parameters:
+    level: 0
+    paths:
+        - ./
+    parallel:
+        maximumNumberOfProcesses: 2
+    excludePaths:
+        - ./vendor
+    reportMaybesInMethodSignatures: true
+    reportStaticMethodSignatures: true
+    checkExplicitMixedMissingReturn: true
+    checkInternalClassCaseSensitivity: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    phpVersion: 80000

@@ -35,7 +35,9 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "php": ">=7.4",
+        "pear/pear_exception": "*",
+        "phpstan/phpstan": "^1.7"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
