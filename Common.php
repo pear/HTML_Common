@@ -37,14 +37,14 @@ abstract class HTML_Common
      * @var     array
      * @access  private
      */
-    private $_attributes = [];
+    protected $_attributes = [];
 
     /**
      * Tab offset of the tag
      * @var     int
      * @access  private
      */
-    private $_tabOffset = 0;
+    protected $_tabOffset = 0;
 
     /**
      * Tab string
@@ -52,7 +52,7 @@ abstract class HTML_Common
      * @since     1.7
      * @access    private
      */
-    private $_tab = "\11";
+    protected $_tab = "\11";
 
     /**
      * Contains the line end string
@@ -60,7 +60,7 @@ abstract class HTML_Common
      * @since     1.7
      * @access    private
      */
-    private $_lineEnd = "\12";
+    protected $_lineEnd = "\12";
 
     /**
      * HTML comment on the object
@@ -68,7 +68,7 @@ abstract class HTML_Common
      * @since     1.5
      * @access    private
      */
-    private $_comment = '';
+    protected $_comment = '';
 
     /**
      * Class constructor
