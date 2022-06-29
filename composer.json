@@ -36,10 +36,10 @@
     "type": "library",
     "require": {
         "php": ">=7.4",
-        "pear/pear_exception": "*",
-        "phpstan/phpstan": "^1.7"
+        "pear/pear_exception": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "phpstan/phpstan": "^1.7"
     }
 }
