@@ -11,4 +11,3 @@ parameters:
     checkExplicitMixedMissingReturn: true
     checkInternalClassCaseSensitivity: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
-    phpVersion: 80000
