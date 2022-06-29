@@ -139,7 +139,7 @@ abstract class HTML_Common
         $strAttr = '';
 
         if (is_array($attributes)) {
-            $charset = $this->charset();
+            $charset = self::charset();
             foreach ($attributes as $key => $value) {
                 $strAttr .= ' ' . $key . '="' . htmlspecialchars($value, ENT_COMPAT, $charset) . '"';
             }
@@ -450,7 +450,7 @@ abstract class HTML_Common
      * @access  public
      * @static
      */
-    public function charset(?string $newCharset = null)
+    public static function charset(?string $newCharset = null)
     {
         static $charset = 'ISO-8859-1';
 
